@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box{
+      display: flex;
+      gap: 70px;
+      max-width: 1000px;
+      width: 100%;
+      padding: 70px;
+      background-color: rgb(231, 180, 224);
+      border-radius: 30px 0 30px 0;
+    }
+    .sq{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 50%;
+      height: 200px;
+      border-radius: 15px;
+      background-color: rgb(212, 91, 172);
+      padding-left: 20px;
+    }
+    .sq h2{
+      padding: 10px 0;
+      text-transform: uppercase;
+    }
+    .result{
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 10px;
+    }
+    .result input {
+      width: 70px;
+      height: 40px;
+      padding-left: 7px;
+    }
+  </style>
+  <div class="box">
+    <div class="sq">
+      <h2>Additon</h2>
+      <div class="result">
+        <input type="number" id="in1">
+        <span>+</span>
+        <input type="number" id="in1">
+        <span>=</span>
+        <span id="res1">0</span>
+      </div>
+    </div>
+    <div class="sq">
+      <h2>Multiplication</h2>
+      <div class="result">
+        <input type="number" id="in2">
+        <span>*</span>
+        <input type="number" id="in2">
+        <span>=</span>
+        <span id="res2">0</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    let input1 = document.querySelectorAll('#in1');
+    let input2 = document.querySelectorAll('#in2');
+    let res1 = document.getElementById('res1');
+    let res2 = document.getElementById('res2');
+
+    input1.forEach((e)=>{
+      e.addEventListener('input',()=>{
+        res1.innerHTML=eval(+input1[0].value + +input1[1].value);
+      })
+    })
+    input2.forEach((e)=>{
+      e.addEventListener('input',()=>{
+        res2.innerHTML=eval(+input2[0].value * +input2[1].value);
+      })
+    })
+  </script>
+</body>
+</html>
